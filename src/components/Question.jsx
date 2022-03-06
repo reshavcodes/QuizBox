@@ -46,7 +46,7 @@ function Question() {
 
   const [isOn, setIsOn] = useState(false);
   const [isDark, setIsDark] = useState("light");
-const [showScore, setShowScore] = useState(true)
+const [showScore, setShowScore] = useState(false)
   const [darkIcon, setDarkIcon] = useState(false);
 
   
