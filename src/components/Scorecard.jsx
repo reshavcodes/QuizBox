@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { animate, motion } from "framer-motion";
-import useFetch from "../hooks/useFetch";
+
+import {motion } from "framer-motion";
+
 
 const cardVariant = {
   hidden: {
@@ -24,22 +24,22 @@ const cardVariant = {
 };
 
 function Scorecard({ showScore, setShowScore, isDark, score, setScore }) {
-  let keyword, quote;
+  let gifUrl, quote;
   if (score <= 20) {
-    keyword = "bad";
+    gifUrl="https://media4.giphy.com/media/6BZaFXBVPBtok/giphy.gif?cid=f35e9a1d1w2p89rrz1sx4h9rf1gdv7zm7r1wew97s3wari4m&rid=giphy.gif&ct=g"
     quote = "You are not good enough try learning javascript from basics.";
   } else if (score <= 50) {
-    keyword = "try again";
+    gifUrl="https://media3.giphy.com/media/VL48WGMDjD64umCEkv/giphy.gif?cid=f35e9a1dg7n9h28t1eyqxpbqmotj2onhc18plgzsbqnip2kg&rid=giphy.gif&ct=g"
     quote = "You did okay, you should try harder.";
   } else if (score <= 80) {
-    keyword = "better";
+    gifUrl="https://media0.giphy.com/media/l0HlOGsDTZTaOTVba/giphy.gif?cid=f35e9a1dy92ptlzk294b9pf1wvih72iehjnddhc9gvbnmahq&rid=giphy.gif&ct=g"
     quote = "You are good enough but you can do better.";
   } else {
-    keyword = "smart";
+   gifUrl="https://media0.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif?cid=f35e9a1dh2loyelj1rrtqsuav8t9l6ty8z1e45kk3n5bb2ln&rid=giphy.gif&ct=g"
     quote = "You know javascript well not try learning javascript frameworks.";
   }
 
-  const gifUrl = useFetch({ keyword });
+
 
   return (
     <motion.div
