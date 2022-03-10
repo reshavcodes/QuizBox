@@ -148,9 +148,17 @@ animate="visible"
 className="w-max flex"
 >
   
+{
+  visible && (
 <button className={`select-none w-max button-${isDark} mt-2 px-6 py-1 rounded-lg mr-10`} onClick={viewExplaination}>
       Explaination
     </button>
+  )
+}  
+
+
+
+
 <button className={`select-none w-max button-${isDark} mt-2 px-6 py-1 rounded-lg`} onClick={handleClick}>
       Next
     </button>
