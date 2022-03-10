@@ -150,13 +150,12 @@ function QuestionCard({
 className="mt-8 mb-8 lg:mt-0 lg:mb-0 lg:ml-10"
 >
   <p className={`p-text-${isDark}`} style={{ whiteSpace: "pre-line", lineHeight: "1.8" }}>
-  {(quests.explanation?(quests?.explanation.length)<=1:"No Explaination Available for this question")}
+  {quests?.explanation}
   </p>
   
   </div>
   )
 }
-
 
 
 
