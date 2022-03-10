@@ -48,7 +48,7 @@ function Question() {
   const [isDark, setIsDark] = useState("light");
 const [showScore, setShowScore] = useState(false)
   const [darkIcon, setDarkIcon] = useState(false);
-
+const [showExp, setShowExp] = useState(false)
   
   useEffect(() => {
     const q = [];
@@ -66,6 +66,7 @@ const [showScore, setShowScore] = useState(false)
 
     for (let i = 0; i < 10; i++) {
       q.push(questions.questions[randnums[i]]);
+      
     }
 
     
@@ -85,6 +86,7 @@ const [showScore, setShowScore] = useState(false)
   };
   const handleClick = () => {
     setVisible(false);
+    setShowExp(false)
     if (index >= 9) {
       setIndex(0);
       setShowScore(true)
@@ -93,12 +95,17 @@ const [showScore, setShowScore] = useState(false)
     }
   };
 
+  const viewExplaination=()=>{
+setShowExp(!showExp)
+  }
+
+
   return (
   
     <div className={`gradient-bg-one-${isDark}`}>
 
     <div
-      className={`flex justify-center items-center w-full min-h-screen ent-bg-one-${isDark} relative transition-all ease-in-out px-7`}
+      className={`flex justify-center items-center w-full min-h-screen ent-bg-one-${isDark} relative transition-all ease-in-out px-7 `}
     >
       <div className="h-[40px]">
       <h2
@@ -131,14 +138,19 @@ const [showScore, setShowScore] = useState(false)
           setScore={setScore}
           score={score}
           qno={index}
+          showExp={showExp}
         />
       
 <motion.div
 variants={btnVariant}
 initial="hidden"
 animate="visible"
-
+className="w-max flex"
 >
+  
+<button className={`select-none w-max button-${isDark} mt-2 px-6 py-1 rounded-lg mr-10`} onClick={viewExplaination}>
+      Explaination
+    </button>
 <button className={`select-none w-max button-${isDark} mt-2 px-6 py-1 rounded-lg`} onClick={handleClick}>
       Next
     </button>

@@ -37,7 +37,8 @@ function QuestionCard({
   setVisible,
   setScore,
   score,
-  qno
+  qno,
+  showExp
 }) {
   const [copyText, setCopyText] = useState("Copy");
   
@@ -83,7 +84,7 @@ function QuestionCard({
                 setCopyText("Copied");
               }}
             >
-              <p className="absolute right-2 top-1 text-xs font-semibold rounded-xl px-2 border-[1px]">{copyText}</p>
+              <p className="absolute right-2 top-1 text-xs font-semibold rounded-xl px-2 border-[1px] cursor-pointer">{copyText}</p>
             </CopyToClipboard>
           
         </div>
@@ -99,7 +100,10 @@ function QuestionCard({
         {/* content 1 end */}
 
         {/* Content 2 - answers */}
-        <div className="flex flex-col justify-center items-center w-[100%]">
+
+        {
+          !showExp && (
+<div className="flex flex-col justify-center items-center w-[100%]">
           {quests?.options.map((ans, index) => (
             <div key={index} className="flex flex-row justify-around items-center w-[90%]">
 
@@ -134,6 +138,28 @@ function QuestionCard({
             </div>
           ))}
         </div>
+          )
+        }
+        
+
+
+
+{
+  showExp && (
+<div
+className="mt-8 mb-8 lg:mt-0 lg:mb-0 lg:ml-10"
+>
+  <p className={`p-text-${isDark}`} style={{ whiteSpace: "pre-line", lineHeight: "1.8" }}>
+  {(quests.explanation?(quests?.explanation.length)<=1:"No Explaination Available for this question")}
+  </p>
+  
+  </div>
+  )
+}
+
+
+
+
         {/* content 2 end */}
       </div>
     </motion.div>
